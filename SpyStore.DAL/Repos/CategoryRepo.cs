@@ -6,6 +6,7 @@ using SpyStore.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace SpyStore.DAL.Repos
         public override IEnumerable<Category> GetAll() => Table.OrderBy(x => x.CategoryName);
         public override IEnumerable<Category> GetRange(int skip, int take) => GetRange(Table.OrderBy(x => x.CategoryName), skip, take);
 
+        //Both of these methods use the Include extension method to eagerly fetch the related Product records for the Category(s) being retrieved.
         public Category? GetOneWithProducts(int? id) => Table.Include(x => x.Products).SingleOrDefault(x => x.Id == id);
         public IEnumerable<Category> GetAllWithProducts() => Table.Include(x => x.Products).ToList();
     }
