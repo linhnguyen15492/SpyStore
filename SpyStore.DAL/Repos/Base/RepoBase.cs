@@ -125,15 +125,15 @@ namespace SpyStore.DAL.Repos.Base
             return persist ? SaveChanges() : 0;
         }
 
-        internal T GetEntryFromChangeTracker(int? id)
+        internal T? GetEntryFromChangeTracker(int? id)
         {
             return Db.ChangeTracker.Entries<T>().Select((EntityEntry e) => (T)e.Entity)
             .FirstOrDefault(x => x.Id == id);
         }
 
-        public T Find(int? id) => Table.Find(id);
+        public T? Find(int? id) => Table.Find(id);
 
-        public T GetFirst() => Table.FirstOrDefault();
+        public T? GetFirst() => Table.FirstOrDefault();
         public virtual IEnumerable<T> GetAll() => Table;
 
         internal IEnumerable<T> GetRange(IQueryable<T> query, int skip, int take) => query.Skip(skip).Take(take);

@@ -43,19 +43,20 @@ namespace SpyStore.DAL.Repos
                 ShipDate = x.ShipDate,
             });
 
-        public OrderWithDetailsAndProductInfo GetOneWithDetails(int customerId, int orderId)
-            => Table
-            .Include(x => x.OrderDetails)
-            .Where(x => x.CustomerId == customerId && x.Id == orderId)
-            .Select(x => new OrderWithDetailsAndProductInfo
-            {
-                Id = x.Id,
-                CustomerId = customerId,
-                OrderDate = x.OrderDate,
-                OrderTotal = x.OrderTotal,
-                ShipDate = x.ShipDate,
-                OrderDetails = _orderDetailRepo.GetSingleOrderWithDetails(orderId).ToList()
-            })
-            .FirstOrDefault();
+        public OrderWithDetailsAndProductInfo? GetOneWithDetails(int customerId, int orderId)
+        {
+            return Table.Include(x => x.OrderDetails)
+                    .Where(x => x.CustomerId == customerId && x.Id == orderId)
+                    .Select(x => new OrderWithDetailsAndProductInfo
+                    {
+                        Id = x.Id,
+                        CustomerId = customerId,
+                        OrderDate = x.OrderDate,
+                        OrderTotal = x.OrderTotal,
+                        ShipDate = x.ShipDate,
+                        OrderDetails = _orderDetailRepo.GetSingleOrderWithDetails(orderId).ToList()
+                    })
+                    .FirstOrDefault();
+        }
     }
 }

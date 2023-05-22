@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SpyStore.DAL.Repos.Interfaces
 {
-    public interface IOrderDetailRepo : IRepo<OrderDetailRepo>
+    public interface IOrderDetailRepo : IRepo<OrderDetail>
     {
         IEnumerable<OrderDetailWithProductInfo> GetCustomersOrdersWithDetails(int customerId);
         IEnumerable<OrderDetailWithProductInfo> GetSingleOrderWithDetails(int orderId);

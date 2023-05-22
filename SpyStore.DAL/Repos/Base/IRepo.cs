@@ -10,8 +10,8 @@ namespace SpyStore.DAL.Repos.Base
     {
         int Count { get; }
         bool HasChanges { get; }
-        T Find(int? id);
-        T GetFirst();
+        T? Find(int? id);
+        T? GetFirst();
         IEnumerable<T> GetAll();
         IEnumerable<T> GetRange(int skip, int take);
         int Add(T entity, bool persist = true);

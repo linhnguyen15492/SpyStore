@@ -46,28 +46,30 @@ namespace SpyStore.DAL.Repos
         public IEnumerable<ProductAndCategoryBase> GetProductsForCategory(int id) => Table
                 .Where(p => p.CategoryId == id)
                 .Include(p => p.Category)
-                .Select(item => GetRecord(item, item.Category))
+                .Select(item => GetRecord(item, item.Category!))
                 .OrderBy(x => x.ModelName);
+
         public IEnumerable<ProductAndCategoryBase> GetAllWithCategoryName() => Table
                 .Include(p => p.Category)
-                .Select(item => GetRecord(item, item.Category))
+                .Select(item => GetRecord(item, item.Category!))
                 .OrderBy(x => x.ModelName);
+
         public IEnumerable<ProductAndCategoryBase> GetFeaturedWithCategoryName() => Table
                 .Where(p => p.IsFeatured)
                 .Include(p => p.Category)
-                .Select(item => GetRecord(item, item.Category))
+                .Select(item => GetRecord(item, item.Category!))
                 .OrderBy(x => x.ModelName);
 
-        public ProductAndCategoryBase GetOneWithCategoryName(int id) => Table
+        public ProductAndCategoryBase? GetOneWithCategoryName(int id) => Table
                 .Where(p => p.Id == id)
                 .Include(p => p.Category)
-                .Select(item => GetRecord(item, item.Category))
+                .Select(item => GetRecord(item, item.Category!))
                 .SingleOrDefault();
 
         public IEnumerable<ProductAndCategoryBase> Search(string searchString) => Table
                 .Where(p => p.Description.ToLower().Contains(searchString.ToLower()) || p.ModelName.ToLower().Contains(searchString.ToLower()))
                 .Include(p => p.Category)
-                .Select(item => GetRecord(item, item.Category))
+                .Select(item => GetRecord(item, item.Category!))
                 .OrderBy(x => x.ModelName);
     }
 }

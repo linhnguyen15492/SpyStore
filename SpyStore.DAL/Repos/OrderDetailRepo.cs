@@ -48,5 +48,8 @@ namespace SpyStore.DAL.Repos
 
         public IEnumerable<OrderDetailWithProductInfo> GetCustomersOrdersWithDetails(int customerId)
             => GetRecords(Table.Where(x => x.Order.CustomerId == customerId));
+
+        public IEnumerable<OrderDetailWithProductInfo> GetSingleOrderWithDetails(int orderId)
+            => GetRecords(Table.Where(x => x.Order.Id == orderId));
     }
 }
