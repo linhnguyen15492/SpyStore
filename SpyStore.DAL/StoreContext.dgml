@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Category" Category="EntityType" Annotations="Relational:Schema: Store Relational:TableName: Categories RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="600.108333333333,779.5,206.563333333333,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Category" Name="Category" />
+    <Node Id="Category.CategoryName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="620.108333333333,931.420000000001,140.276666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CategoryName (string)" MaxLength="(50)" Name="CategoryName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Category.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="620.108333333333,819.5,54.5500000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Category.Products" Category="Navigation Collection" Bounds="704.658333333334,819.5,82.0133333333333,25.96" Dependent="Product" Field="" Inverse="Category" Label="Products (*)" Name="Products" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Product&gt;" />
+    <Node Id="Category.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="620.108333333333,875.46,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="Customer" Category="EntityType" Annotations="Relational:Schema: Store Relational:TableName: Customers RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="233.35,751.52,336.08,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Customer" Name="Customer" />
+    <Node Id="Customer.EmailAddress" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="253.35,903.440000000001,131.46,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="EmailAddress (string)" MaxLength="(50)" Name="EmailAddress" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customer.FullName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="253.35,847.48,110.783333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="FullName (string)" MaxLength="(50)" Name="FullName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customer.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="253.35,791.52,54.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Customer.Orders" Category="Navigation Collection" Bounds="337.9,791.52,71.36,25.96" Dependent="Order" Field="" Inverse="Customer" Label="Orders (*)" Name="Orders" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Order&gt;" />
+    <Node Id="Customer.Password" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="439.26,791.52,110.17,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Password (string)" MaxLength="(50)" Name="Password" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Customer.ShoppingCartRecords" Category="Navigation Collection" Bounds="253.35,959.400000000001,150.38,25.96" Dependent="ShoppingCartRecord" Field="" Inverse="Customer" Label="ShoppingCartRecords (*)" Name="ShoppingCartRecords" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShoppingCartRecord&gt;" />
+    <Node Id="Customer.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="394.133333333334,847.48,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="IModel" Category="Model" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]] Relational:MaxIdentifierLength: 128 RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]] SqlServer:ValueGenerationStrategy: IdentityColumn" Bounds="0,0,978.525,1025.36" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" Label="StoreContext" ProductVersion="7.0.5" PropertyAccessMode="PropertyAccessMode.Default" />
+    <Node Id="Order" Category="EntityType" Annotations="Relational:Schema: Store Relational:TableName: Orders RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="20,395.76,344.78,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Order" Name="Order" />
+    <Node Id="Order.Customer" Category="Navigation Property" Bounds="124.55,435.76,88.1933333333333,25.96" Dependent="" Field="" Inverse="Orders" Label="Customer (1)" Name="Customer" Principal="Customer" PropertyAccessMode="PropertyAccessMode.Default" Type="Customer" />
+    <Node Id="Order.CustomerId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,491.72,105.746666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CustomerId (int)" MaxLength="None" Name="CustomerId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Order.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,435.76,54.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Order.OrderDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: datetime Relational:DefaultValueSql: getdate()" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,603.64,136.796666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrderDate (DateTime)" MaxLength="None" Name="OrderDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Order.OrderDetails" Category="Navigation Collection" Bounds="242.743333333333,435.76,102.036666666667,25.96" Dependent="OrderDetail" Field="" Inverse="Order" Label="OrderDetails (*)" Name="OrderDetails" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;OrderDetail&gt;" />
+    <Node Id="Order.OrderTotal" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: money Relational:ComputedColumnSql: Store.GetOrderTotal([Id])" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="199.183333333333,547.68,133.013333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="OrderTotal (decimal?)" MaxLength="None" Name="OrderTotal" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal?" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="Order.ShipDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: datetime Relational:DefaultValueSql: getdate()" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,547.68,129.183333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ShipDate (DateTime)" MaxLength="None" Name="ShipDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Order.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="175.746666666667,491.72,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="OrderDetail" Category="EntityType" Annotations="Relational:Schema: Store Relational:TableName: OrderDetails RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="140.841666666667,40,371.096666666667,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="OrderDetail" Name="OrderDetail" />
+    <Node Id="OrderDetail.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="160.841666666667,80,54.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="OrderDetail.LineItemTotal" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: money Relational:ComputedColumnSql: [Quantity]*[UnitCost]" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="160.841666666667,247.88,147.773333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="LineItemTotal (decimal?)" MaxLength="None" Name="LineItemTotal" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal?" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="OrderDetail.Order" Category="Navigation Property" Bounds="245.391666666667,80,67.7333333333333,25.96" Dependent="" Field="" Inverse="OrderDetails" Label="Order (1)" Name="Order" Principal="Order" PropertyAccessMode="PropertyAccessMode.Default" Type="Order" />
+    <Node Id="OrderDetail.OrderId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="160.841666666667,135.96,85.2866666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="OrderId (int)" MaxLength="None" Name="OrderId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderDetail.Product" Category="Navigation Property" Bounds="343.125,80,78.3866666666667,25.96" Dependent="" Field="" Inverse="OrderDetails" Label="Product (1)" Name="Product" Principal="Product" PropertyAccessMode="PropertyAccessMode.Default" Type="Product" />
+    <Node Id="OrderDetail.ProductId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="395.998333333333,135.96,95.94,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ProductId (int)" MaxLength="None" Name="ProductId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderDetail.Quantity" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="276.128333333333,135.96,89.87,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Quantity (int)" MaxLength="None" Name="Quantity" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="OrderDetail.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="308.138333333333,191.92,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="OrderDetail.UnitCost" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: money" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="160.841666666667,191.92,117.296666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UnitCost (decimal)" MaxLength="None" Name="UnitCost" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal" ValueGenerated="None" />
+    <Node Id="Product" Category="EntityType" Annotations="Relational:Schema: Store Relational:TableName: Products RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="448.255,339.8,510.27,365.76" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Product" Name="Product" />
+    <Node Id="Product.Category" Category="Navigation Property" Bounds="552.805,379.8,84.9533333333334,25.96" Dependent="" Field="" Inverse="Products" Label="Category (1)" Name="Category" Principal="Category" PropertyAccessMode="PropertyAccessMode.Default" Type="Category" />
+    <Node Id="Product.CategoryId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="799.795,379.8,102.506666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CategoryId (int)" MaxLength="None" Name="CategoryId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Product.CurrentPrice" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: money" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="633.248333333333,547.68,136.99,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CurrentPrice (decimal)" MaxLength="None" Name="CurrentPrice" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal" ValueGenerated="None" />
+    <Node Id="Product.Description" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 3800" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="618.581666666667,491.72,120.876666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Description (string)" MaxLength="(3800)" Name="Description" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="468.255,379.8,54.55,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Product.IsFeatured" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="468.255,435.76,109.45,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="IsFeatured (bool)" MaxLength="None" Name="IsFeatured" PropertyAccessMode="PropertyAccessMode.Default" Type="bool" ValueGenerated="None" />
+    <Node Id="Product.ModelName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="769.458333333333,491.72,126.376666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ModelName (string)" MaxLength="(50)" Name="ModelName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.ModelNumber" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 50" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="800.238333333333,547.68,138.286666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ModelNumber (string)" MaxLength="(50)" Name="ModelNumber" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.OrderDetails" Category="Navigation Collection" Bounds="667.758333333333,379.8,102.036666666667,25.96" Dependent="OrderDetail" Field="" Inverse="Product" Label="OrderDetails (*)" Name="OrderDetails" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;OrderDetail&gt;" />
+    <Node Id="Product.ProductImage" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 150" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="468.255,547.68,134.993333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ProductImage (string)" MaxLength="(150)" Name="ProductImage" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.ProductImageLarge" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 150" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="648.635,603.64,164.266666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ProductImageLarge (string)" MaxLength="(150)" Name="ProductImageLarge" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.ProductImageThumb" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="MaxLength: 150" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="468.255,659.6,172.25,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ProductImageThumb (string)" MaxLength="(150)" Name="ProductImageThumb" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Product.ShoppingCartRecords" Category="Navigation Collection" Bounds="468.255,603.64,150.38,25.96" Dependent="ShoppingCartRecord" Field="" Inverse="Product" Label="ShoppingCartRecords (*)" Name="ShoppingCartRecords" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShoppingCartRecord&gt;" />
+    <Node Id="Product.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="468.255,491.72,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+    <Node Id="Product.UnitCost" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: money" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="747.668333333334,435.76,117.296666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UnitCost (decimal)" MaxLength="None" Name="UnitCost" PropertyAccessMode="PropertyAccessMode.Default" Type="decimal" ValueGenerated="None" />
+    <Node Id="Product.UnitsInStock" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="607.705,435.76,109.963333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UnitsInStock (int)" MaxLength="None" Name="UnitsInStock" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShoppingCartRecord" Category="EntityType" Annotations="" BaseClass="" Bounds="542.825,40,321.13,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="ShoppingCartRecord" Name="ShoppingCartRecord" />
+    <Node Id="ShoppingCartRecord.Customer" Category="Navigation Property" Bounds="755.761666666667,80,88.1933333333334,25.96" Dependent="" Field="" Inverse="ShoppingCartRecords" Label="Customer (1)" Name="Customer" Principal="Customer" PropertyAccessMode="PropertyAccessMode.Default" Type="Customer" />
+    <Node Id="ShoppingCartRecord.CustomerId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="562.825,191.92,105.746666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CustomerId (int)" MaxLength="None" Name="CustomerId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShoppingCartRecord.DateCreated" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:ColumnType: datetime Relational:DefaultValueSql: getdate()" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="562.825,247.88,152.836666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="DateCreated (DateTime?)" MaxLength="None" Name="DateCreated" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTime?" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="ShoppingCartRecord.Id" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="562.825,80,54.5500000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="True" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Id (int)" MaxLength="None" Name="Id" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="ShoppingCartRecord.Product" Category="Navigation Property" Bounds="647.375,80,78.3866666666665,25.96" Dependent="" Field="" Inverse="ShoppingCartRecords" Label="Product (1)" Name="Product" Principal="Product" PropertyAccessMode="PropertyAccessMode.Default" Type="Product" />
+    <Node Id="ShoppingCartRecord.ProductId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="682.695,135.96,95.9400000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ProductId (int)" MaxLength="None" Name="ProductId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShoppingCartRecord.Quantity" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultValue: 1" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="562.825,135.96,89.87,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Quantity (int)" MaxLength="None" Name="Quantity" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="ShoppingCartRecord.TimeStamp" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="698.571666666667,191.92,120.326666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="True" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="TimeStamp (byte[])" MaxLength="None" Name="TimeStamp" PropertyAccessMode="PropertyAccessMode.Default" Type="byte[]" ValueGenerated="ValueGenerated.OnAddOrUpdate" />
+  </Nodes>
+  <Links>
+    <Link Source="Category" Target="Category.CategoryName" Category="Contains" />
+    <Link Source="Category" Target="Category.Id" Category="Contains" />
+    <Link Source="Category" Target="Category.Products" Category="Contains" />
+    <Link Source="Category" Target="Category.TimeStamp" Category="Contains" />
+    <Link Source="Customer" Target="Customer.EmailAddress" Category="Contains" />
+    <Link Source="Customer" Target="Customer.FullName" Category="Contains" />
+    <Link Source="Customer" Target="Customer.Id" Category="Contains" />
+    <Link Source="Customer" Target="Customer.Orders" Category="Contains" />
+    <Link Source="Customer" Target="Customer.Password" Category="Contains" />
+    <Link Source="Customer" Target="Customer.ShoppingCartRecords" Category="Contains" />
+    <Link Source="Customer" Target="Customer.TimeStamp" Category="Contains" />
+    <Link Source="IModel" Target="Category" Category="Contains" />
+    <Link Source="IModel" Target="Customer" Category="Contains" />
+    <Link Source="IModel" Target="Order" Category="Contains" />
+    <Link Source="IModel" Target="OrderDetail" Category="Contains" />
+    <Link Source="IModel" Target="Product" Category="Contains" />
+    <Link Source="IModel" Target="ShoppingCartRecord" Category="Contains" />
+    <Link Source="Order" Target="Customer" Category="Foreign Key" Annotations="" Bounds="266.952301025391,649.599975585938,55.3166198730469,94.1600341796875" From="Order.CustomerId" IsUnique="False" Label="1:*" LabelBounds="313.327542163256,720.56,14.0733333333334,15.96" Name="Order -&gt; Customer" To="Customer.Id" />
+    <Link Source="Order" Target="Order.Customer" Category="Contains" />
+    <Link Source="Order" Target="Order.CustomerId" Category="Contains" />
+    <Link Source="Order" Target="Order.Id" Category="Contains" />
+    <Link Source="Order" Target="Order.OrderDate" Category="Contains" />
+    <Link Source="Order" Target="Order.OrderDetails" Category="Contains" />
+    <Link Source="Order" Target="Order.OrderTotal" Category="Contains" />
+    <Link Source="Order" Target="Order.ShipDate" Category="Contains" />
+    <Link Source="Order" Target="Order.TimeStamp" Category="Contains" />
+    <Link Source="OrderDetail" Target="Order" Category="Foreign Key" Annotations="" Bounds="243.36784362793,293.839996337891,35.2166595458984,93.4976501464844" From="OrderDetail.OrderId" IsUnique="False" Label="1:*" LabelBounds="269.928902630987,308.84,14.0733333333334,15.96" Name="OrderDetail -&gt; Order" To="Order.Id" />
+    <Link Source="OrderDetail" Target="OrderDetail.Id" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.LineItemTotal" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.Order" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.OrderId" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.Product" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.ProductId" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.Quantity" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.TimeStamp" Category="Contains" />
+    <Link Source="OrderDetail" Target="OrderDetail.UnitCost" Category="Contains" />
+    <Link Source="OrderDetail" Target="Product" Category="Foreign Key" Annotations="" Bounds="367.666564941406,293.839996337891,72.9172973632813,57.2967529296875" From="OrderDetail.ProductId" IsUnique="False" Label="1:*" LabelBounds="360.047545775692,306.47716798542,14.0733333333334,15.96" Name="OrderDetail -&gt; Product" To="Product.Id" />
+    <Link Source="Product" Target="Category" Category="Foreign Key" Annotations="" Bounds="703.390014648438,705.559997558594,0,64.9400024414063" From="Product.CategoryId" IsUnique="False" Label="1:*" LabelBounds="689.316666666667,720.56,14.0733333333333,15.96" Name="Product -&gt; Category" To="Category.Id" />
+    <Link Source="Product" Target="Product.Category" Category="Contains" />
+    <Link Source="Product" Target="Product.CategoryId" Category="Contains" />
+    <Link Source="Product" Target="Product.CurrentPrice" Category="Contains" />
+    <Link Source="Product" Target="Product.Description" Category="Contains" />
+    <Link Source="Product" Target="Product.Id" Category="Contains" />
+    <Link Source="Product" Target="Product.IsFeatured" Category="Contains" />
+    <Link Source="Product" Target="Product.ModelName" Category="Contains" />
+    <Link Source="Product" Target="Product.ModelNumber" Category="Contains" />
+    <Link Source="Product" Target="Product.OrderDetails" Category="Contains" />
+    <Link Source="Product" Target="Product.ProductImage" Category="Contains" />
+    <Link Source="Product" Target="Product.ProductImageLarge" Category="Contains" />
+    <Link Source="Product" Target="Product.ProductImageThumb" Category="Contains" />
+    <Link Source="Product" Target="Product.ShoppingCartRecords" Category="Contains" />
+    <Link Source="Product" Target="Product.TimeStamp" Category="Contains" />
+    <Link Source="Product" Target="Product.UnitCost" Category="Contains" />
+    <Link Source="Product" Target="Product.UnitsInStock" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="Customer" Category="Foreign Key" Annotations="" Bounds="403.326110839844,280.435180664063,139.498901367188,462.085754394531" From="ShoppingCartRecord.CustomerId" IsUnique="False" Label="1:*" LabelBounds="395.316666666667,514.7,14.0733333333334,15.96" Name="ShoppingCartRecord -&gt; Customer" To="Customer.Id" />
+    <Link Source="ShoppingCartRecord" Target="Product" Category="Foreign Key" Annotations="" Bounds="703.390014648438,293.839996337891,0,36.9599914550781" From="ShoppingCartRecord.ProductId" IsUnique="False" Label="1:*" LabelBounds="689.316666666667,308.84,14.0733333333334,15.96" Name="ShoppingCartRecord -&gt; Product" To="Product.Id" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.Customer" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.CustomerId" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.DateCreated" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.Id" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.Product" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.ProductId" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.Quantity" Category="Contains" />
+    <Link Source="ShoppingCartRecord" Target="ShoppingCartRecord.TimeStamp" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="EntityType" />
+    <Category Id="Foreign Key" />
+    <Category Id="Model" />
+    <Category Id="Navigation Collection" />
+    <Category Id="Navigation Property" />
+    <Category Id="Property Foreign" />
+    <Category Id="Property Optional" />
+    <Category Id="Property Primary" />
+    <Category Id="Property Required" />
+  </Categories>
+  <Properties>
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass" Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Field" Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsAbstract" Label="IsAbstract" Description="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="MaxLength" DataType="System.String" />
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type" Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>

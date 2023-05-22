@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SpyStore.DAL.Repos.Interfaces;
 
 namespace SpyStore.DAL.Repos.Base
 {
