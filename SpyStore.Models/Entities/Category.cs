@@ -12,6 +12,11 @@ namespace SpyStore.Models.Entities
     public class Category : EntityBase
     {
         [DataType(DataType.Text), MaxLength(50)]
+        [Display(Name = "Category")]
         public string CategoryName { get; set; } = string.Empty;
+
+        [InverseProperty(nameof(Product.Category))]
+        public List<Product> Products { get; set; } = new List<Product>();
     }
 }
+
