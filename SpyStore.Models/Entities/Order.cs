@@ -12,14 +12,18 @@ namespace SpyStore.Models.Entities
     public class Order : EntityBase
     {
         public int CustomerId { get; set; }
+
         [DataType(DataType.Date)]
         [Display(Name = "Date Ordered")]
         public DateTime OrderDate { get; set; }
+
         [DataType(DataType.Date)]
         [Display(Name = "Date Shipped")]
         public DateTime ShipDate { get; set; }
+
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
+
         [InverseProperty("Order")]
         public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

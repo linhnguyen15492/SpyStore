@@ -13,15 +13,16 @@ namespace SpyStore.Models.Entities
     {
         [DataType(DataType.Text), MaxLength(50), Display(Name = "Full Name")]
         public string FullName { get; set; } = string.Empty;
-        [Required]
-        [EmailAddress]
-        [DataType(DataType.EmailAddress), MaxLength(50), Display(Name = "Email Address")]
+
+        [Required, EmailAddress, DataType(DataType.EmailAddress), MaxLength(50), Display(Name = "Email Address")]
         public string EmailAddress { get; set; } = string.Empty;
-        [Required]
-        [DataType(DataType.Password), MaxLength(50)]
+
+        [Required, DataType(DataType.Password), MaxLength(50)]
         public string Password { get; set; } = string.Empty;
+
         [InverseProperty(nameof(Order.Customer))]
         public List<Order> Orders { get; set; } = new List<Order>();
+
         [InverseProperty(nameof(ShoppingCartRecord.Customer))]
         public virtual List<ShoppingCartRecord> ShoppingCartRecords { get; set; } = new List<ShoppingCartRecord>();
     }
