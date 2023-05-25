@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpyStore.Models.ViewModels.Base
 {
+    // The final view model combines the ShoppingCartRecord, Product, and Category tables.
     public class CartRecordWithProductInfo : ProductAndCategoryBase
     {
         [DataType(DataType.Date), Display(Name = "Date Created")]

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SpyStore.DAL.EF;
 using SpyStore.DAL.Repos.Base;
 using SpyStore.DAL.Repos.Interfaces;
@@ -16,6 +17,7 @@ namespace SpyStore.DAL.Repos
     {
         private readonly IOrderDetailRepo _orderDetailRepo;
 
+        // The constructors also take IOrderDetailRepo as a parameter. This will be instantiated by the DI Framework in ASP.NET Core(or manually in unit test classes).
         public OrderRepo(DbContextOptions<StoreContext> options, IOrderDetailRepo orderDetailRepo) : base(options)
         {
             _orderDetailRepo = orderDetailRepo;
@@ -31,6 +33,7 @@ namespace SpyStore.DAL.Repos
         public override IEnumerable<Order> GetRange(int skip, int take)
             => GetRange(Table.OrderByDescending(x => x.OrderDate), skip, take);
 
+        // The GetOrderHistory gets all of the orders for a customer, removing the navigation properties from the result set.
         public IEnumerable<Order> GetOrderHistory(int customerId)
             => Table.Where(x => x.CustomerId == customerId)
             .Select(x => new Order
@@ -43,6 +46,7 @@ namespace SpyStore.DAL.Repos
                 ShipDate = x.ShipDate,
             });
 
+        // The GetOneWithDetails() method uses OrderDetailRepo to retrieve the OrderDetails with Product and Category information, which is then added to the view model.
         public OrderWithDetailsAndProductInfo? GetOneWithDetails(int customerId, int orderId)
         {
             return Table.Include(x => x.OrderDetails)

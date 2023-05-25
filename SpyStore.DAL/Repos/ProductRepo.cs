@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SpyStore.DAL.EF;
 using SpyStore.DAL.Repos.Base;
 using SpyStore.DAL.Repos.Interfaces;
@@ -23,8 +24,11 @@ namespace SpyStore.DAL.Repos
             Table = Context.Products;
         }
 
+        // The GetAll() method overrides the base GetAll() method to return the Product records in order of the ModelName property.
         public override IEnumerable<Product> GetAll() => Table.OrderBy(x => x.ModelName);
 
+        // The internal GetRecord method is used to project the LINQ results in the following methods
+        // (GetAllWithCategoryName(), GetFeaturedWithCategoryName(), GetOneWithCategoryName(), and Search()) to create the ProductAndCategoryBase view model.
         internal ProductAndCategoryBase GetRecord(Product p, Category c) => new ProductAndCategoryBase()
         {
             CategoryName = c.CategoryName,
@@ -43,6 +47,7 @@ namespace SpyStore.DAL.Repos
             UnitsInStock = p.UnitsInStock
         };
 
+        // The GetProductsForCategory() method returns all of the Product records for a specific Category Id, ordered by ModelName.
         public IEnumerable<ProductAndCategoryBase> GetProductsForCategory(int id) => Table
                 .Where(p => p.CategoryId == id)
                 .Include(p => p.Category)

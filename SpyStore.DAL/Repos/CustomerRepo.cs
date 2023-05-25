@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SpyStore.DAL.Repos
 {
+    // The CustomerRepo provides the core features of the BaseRepo class and implements the ICustomerRepo interface.
     public class CustomerRepo : RepoBase<Customer>, ICustomerRepo
     {
         public CustomerRepo(DbContextOptions<StoreContext> options) : base(options)

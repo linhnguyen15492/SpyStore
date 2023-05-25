@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpyStore.Models.ViewModels.Base
 {
+    // When viewing an order online, the order details contain product and category information as well.
     public class OrderDetailWithProductInfo : ProductAndCategoryBase
     {
         public int OrderId { get; set; }

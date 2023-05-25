@@ -1,4 +1,6 @@
-﻿using SpyStore.Models.Entities;
+﻿using Azure;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SpyStore.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace SpyStore.Models.ViewModels.Base
 {
+    // This view model combines the Product and Category data into one class.
+    // It also doubles as a base class for the other view models that need Product and Category information together.This is used on the home page and the search results pages.
     public class ProductAndCategoryBase : EntityBase
     {
         public int CategoryId { get; set; }
