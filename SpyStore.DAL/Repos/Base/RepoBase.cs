@@ -10,11 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SpyStore.DAL.Repos.Interfaces;
+using System.Diagnostics;
+using System.Net.NetworkInformation;
 
 namespace SpyStore.DAL.Repos.Base
 {
     public abstract class RepoBase<T> : IDisposable, IRepo<T> where T : EntityBase, new()
     {
+        // Create a protected variable for the StoreContext, instantiate it in the constructors, and dispose of it in the Dispose method.
         protected readonly StoreContext Db;
         protected DbSet<T> Table;
         public StoreContext Context => Db;
@@ -25,6 +28,7 @@ namespace SpyStore.DAL.Repos.Base
             Table = Db.Set<T>();
         }
 
+        // The second constructor takes a DbContextOptions instance to support dependency injection.
         protected RepoBase(DbContextOptions<StoreContext> options)
         {
             Db = new StoreContext(options);
@@ -50,6 +54,8 @@ namespace SpyStore.DAL.Repos.Base
             _disposed = true;
         }
 
+        // A significant advantage to encapsulating the DbSet<T> and DbContext operations in a repository class is wrapping the call to SaveChanges.
+        // This enables centralized error handling of calls to make changes to the database.
         public int SaveChanges()
         {
             try
@@ -110,6 +116,10 @@ namespace SpyStore.DAL.Repos.Base
             return persist ? SaveChanges() : 0;
         }
 
+
+        // The Delete method first uses that method to check if the entity is being tracked. If it is, and the TimeStamps match, the entity is removed.
+        // If the entity is being tracked and the TimeStamps don’t match, an exception is thrown.
+        // If the entity isn’t being tracked, a new entity is created and tracked with the EntityState of Deleted.
         public int Delete(int id, byte[] timeStamp, bool persist = true)
         {
             var entry = GetEntryFromChangeTracker(id);
@@ -136,6 +146,8 @@ namespace SpyStore.DAL.Repos.Base
         public T? GetFirst() => Table.FirstOrDefault();
         public virtual IEnumerable<T> GetAll() => Table;
 
+        // The GetRange method is used for chunking. The base public implementation uses the default sort order.
+        // The internal method takes an IQueryable<T> to allow downstream implementations to change the sort order or filters prior to the chunking.
         internal IEnumerable<T> GetRange(IQueryable<T> query, int skip, int take) => query.Skip(skip).Take(take);
         public virtual IEnumerable<T> GetRange(int skip, int take) => GetRange(Table, skip, take);
 

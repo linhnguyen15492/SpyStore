@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SpyStore.DAL.Repos.Base
 {
+    // My version of the repository pattern starts with a core repository for the common methods that will be used
+    // on all derived repositories.This core interface (called IRepo) will be supported by an abstract class that
+    // encapsulates the DBSet<T> and DbContext methods, plus some additional convenience methods.
     public interface IRepo<T> where T : class
     {
         int Count { get; }
