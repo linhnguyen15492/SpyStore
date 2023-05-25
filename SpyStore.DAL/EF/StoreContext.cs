@@ -48,6 +48,7 @@ namespace SpyStore.DAL.EF
             optionsBuilder.UseSqlServer(connectionString);
         }
 
+        // The Fluent API is another mechanism to shape your database. Fluent API code is placed in the override of the OnModelCreating() method in your DbContext class.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
