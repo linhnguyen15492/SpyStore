@@ -16,6 +16,16 @@ namespace SpyStore.DAL.EF
                                                     MultipleActiveResultSets=true;
                                                     Trust Server Certificate=true";
 
+        #region DBSet
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ShoppingCartRecord> ShoppingCartRecords { get; set; }
+
+        #endregion DBSet
+
         public StoreContext()
         {
         }
@@ -86,12 +96,5 @@ namespace SpyStore.DAL.EF
                 entity.Property(e => e.Quantity).HasDefaultValue(1);
             });
         }
-
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ShoppingCartRecord> ShoppingCartRecords { get; set; }
     }
 }
