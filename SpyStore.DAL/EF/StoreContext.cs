@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SpyStore.DAL.EF
 {
@@ -70,16 +71,17 @@ namespace SpyStore.DAL.EF
                     .HasDefaultValueSql("getdate()");
                 entity.Property(e => e.OrderTotal)
                     .HasColumnType("money")
-                    .HasComputedColumnSql("Store.GetOrderTotal([Id])")
-                    .ValueGeneratedOnAddOrUpdate();
+                    .HasComputedColumnSql("Store.GetOrderTotal([Id])");
             });
+
+            modelBuilder.Entity<Order>()
+                .ToTable(tbl => tbl.HasTrigger("Store.GetOrderTotal([Id])"));
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.Property(e => e.LineItemTotal)
                     .HasColumnType("money")
-                    .HasComputedColumnSql("[Quantity]*[UnitCost]")
-                    .ValueGeneratedOnAddOrUpdate();
+                    .HasComputedColumnSql("[Quantity]*[UnitCost]");
                 entity.Property(e => e.UnitCost).HasColumnType("money");
             });
 
