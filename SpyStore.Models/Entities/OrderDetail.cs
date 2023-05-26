@@ -24,6 +24,7 @@ namespace SpyStore.Models.Entities
         public decimal UnitCost { get; set; }
 
         [Display(Name = "Total")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal? LineItemTotal { get; set; }
 
         [ForeignKey(nameof(OrderId))]

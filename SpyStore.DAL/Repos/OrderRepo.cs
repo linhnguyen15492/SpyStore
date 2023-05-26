@@ -42,7 +42,7 @@ namespace SpyStore.DAL.Repos
                 TimeStamp = x.TimeStamp,
                 CustomerId = customerId,
                 OrderDate = x.OrderDate,
-                OrderTotal = x.OrderTotal,
+                //OrderTotal = x.OrderTotal,
                 ShipDate = x.ShipDate,
             });
 

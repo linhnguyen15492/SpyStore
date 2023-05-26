@@ -18,6 +18,7 @@ namespace SpyStore.Service.Controllers
             _logger = logger;
         }
 
+        // Routes can also be assigned a name. This creates a shorthand method for redirecting to a particular route just by using the name.
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

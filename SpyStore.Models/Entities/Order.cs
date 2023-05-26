@@ -28,6 +28,7 @@ namespace SpyStore.Models.Entities
         public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
         [Display(Name = "Total")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal? OrderTotal { get; set; }
     }
 }

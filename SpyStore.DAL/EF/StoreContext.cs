@@ -46,6 +46,7 @@ namespace SpyStore.DAL.EF
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.EnableSensitiveDataLogging();
         }
 
         // The Fluent API is another mechanism to shape your database. Fluent API code is placed in the override of the OnModelCreating() method in your DbContext class.
@@ -69,14 +70,16 @@ namespace SpyStore.DAL.EF
                     .HasDefaultValueSql("getdate()");
                 entity.Property(e => e.OrderTotal)
                     .HasColumnType("money")
-                    .HasComputedColumnSql("Store.GetOrderTotal([Id])");
+                    .HasComputedColumnSql("Store.GetOrderTotal([Id])")
+                    .ValueGeneratedOnAddOrUpdate();
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
             {
                 entity.Property(e => e.LineItemTotal)
                     .HasColumnType("money")
-                    .HasComputedColumnSql("[Quantity]*[UnitCost]");
+                    .HasComputedColumnSql("[Quantity]*[UnitCost]")
+                    .ValueGeneratedOnAddOrUpdate();
                 entity.Property(e => e.UnitCost).HasColumnType("money");
             });
 

@@ -4,6 +4,7 @@ using SpyStore.DAL.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,39 +56,54 @@ namespace SpyStore.DAL.Initializers
         // The SeedData method calls the methods in the StoreSampleData class to populate the database.
         public static void SeedData(StoreContext context)
         {
+            List<Models.Entities.Category> sampleCategories = StoreSampleData.GetCategories().ToList();
+            IList<Models.Entities.Product> sampleProducts = StoreSampleData.GetProducts(sampleCategories);
+            List<Models.Entities.Customer> sampleCustomers = StoreSampleData.GetAllCustomerRecords(context).ToList();
+
             try
             {
+                // bổ sung AsNoTracking để có thể gọi lại ở phía dưới
                 if (!context.Categories.Any())
                 {
-                    context.Categories.AddRange(StoreSampleData.GetCategories());
+                    //context.Categories.AddRange(StoreSampleData.GetCategories());
+                    context.Categories.AddRange(sampleCategories);
                     context.SaveChanges();
                 }
                 if (!context.Products.Any())
                 {
-                    context.Products.AddRange(StoreSampleData.GetProducts(context.Categories.ToList()));
+                    //context.Products.AddRange(StoreSampleData.GetProducts(context.Categories.AsNoTracking().ToList()));
+                    context.Products.AddRange(sampleProducts);
                     context.SaveChanges();
                 }
                 if (!context.Customers.Any())
                 {
-                    context.Customers.AddRange(StoreSampleData.GetAllCustomerRecords(context));
+                    //context.Customers.AddRange(StoreSampleData.GetAllCustomerRecords(context));
+                    context.Customers.AddRange(sampleCustomers);
                     context.SaveChanges();
                 }
 
-                var customer = context.Customers.FirstOrDefault();
+                var customer = context.Customers.AsNoTracking().FirstOrDefault();
                 if (customer is not null)
                 {
-                    if (!context.Orders.Any())
+                    List<Models.Entities.Order> orders = StoreSampleData.GetOrders(customer, context);
+                    IList<Models.Entities.ShoppingCartRecord> cartRecords = StoreSampleData.GetCart(customer, context);
+
+                    if (!context.Orders.AsNoTracking().Any())
                     {
-                        context.Orders.AddRange(StoreSampleData.GetOrders(customer, context));
-                        context.SaveChanges();
+                        //context.Orders.AddRange(StoreSampleData.GetOrders(customer, context));
+                        context.Orders.AddRange(orders);
+                        //context.SaveChanges();
                     }
-                    if (!context.ShoppingCartRecords.Any())
+
+                    if (!context.ShoppingCartRecords.AsNoTracking().Any())
                     {
-                        context.ShoppingCartRecords.AddRange(
-                        StoreSampleData.GetCart(customer, context));
-                        context.SaveChanges();
+                        //context.ShoppingCartRecords.AddRange(StoreSampleData.GetCart(customer, context));
+                        context.ShoppingCartRecords.AddRange(cartRecords);
+                        //context.SaveChanges();
                     }
+
                 }
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
