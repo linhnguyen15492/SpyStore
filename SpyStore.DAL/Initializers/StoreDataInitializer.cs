@@ -102,8 +102,10 @@ namespace SpyStore.DAL.Initializers
                         //context.SaveChanges();
                     }
 
+                    context.SaveChanges();
+
                 }
-                context.SaveChanges();
+
             }
             catch (Exception ex)
             {
