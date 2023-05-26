@@ -753,9 +753,9 @@ namespace SpyStore.DAL.Initializers
 
             return new List<OrderDetail>
             {
-                new OrderDetail() {OrderId = order.Id, Product = prod1, Quantity = 3, UnitCost = prod1!.CurrentPrice},
-                new OrderDetail() {OrderId = order.Id, Product = prod2, Quantity = 2, UnitCost = prod2!.CurrentPrice},
-                new OrderDetail() {OrderId = order.Id, Product = prod3, Quantity = 5, UnitCost = prod3!.CurrentPrice},
+                new OrderDetail() {Order = order, Product = prod1, Quantity = 3, UnitCost = prod1!.CurrentPrice},
+                new OrderDetail() {Order = order, Product = prod2, Quantity = 2, UnitCost = prod2!.CurrentPrice},
+                new OrderDetail() {Order = order, Product = prod3, Quantity = 5, UnitCost = prod3!.CurrentPrice},
             };
         }
 

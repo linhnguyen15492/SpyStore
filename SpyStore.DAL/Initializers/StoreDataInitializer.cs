@@ -27,7 +27,7 @@ namespace SpyStore.DAL.Initializers
         public static void InitializeData(StoreContext context)
         {
             context.Database.Migrate();
-            ClearData(context);
+            //ClearData(context);
             SeedData(context);
         }
 
