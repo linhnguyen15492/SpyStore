@@ -30,7 +30,7 @@ namespace SpyStore.DAL.Repos
         // The internal GetRecords method starts with an IQueryable<OrderDetail> and then uses a projection to populate a list of OrderDetailWithProductInfo.
         internal IEnumerable<OrderDetailWithProductInfo> GetRecords(IQueryable<OrderDetail> query)
         {
-            return query.Include(x => x.Product)
+            return query.Include(x => x.Product!)
                             .ThenInclude(p => p.Category)
                         .Select(x => new OrderDetailWithProductInfo
                         {

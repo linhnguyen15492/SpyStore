@@ -31,10 +31,13 @@ namespace SpyStore.DAL.Repos
 
         public override IEnumerable<ShoppingCartRecord> GetAll() => Table.OrderByDescending(x => x.DateCreated);
         public override IEnumerable<ShoppingCartRecord> GetRange(int skip, int take) => GetRange(Table.OrderByDescending(x => x.DateCreated), skip, take);
-        public ShoppingCartRecord Find(int customerId, int productId)
+
+        // The additional Find method uses the Id of the Customer and the Id of a Product to find a specific record.
+        public ShoppingCartRecord? Find(int customerId, int productId)
         {
             return Table.FirstOrDefault(x => x.CustomerId == customerId && x.ProductId == productId);
         }
+
         public override int Update(ShoppingCartRecord entity, bool persist = true)
         {
             return Update(entity, _productRepo.Find(entity.ProductId)?.UnitsInStock, persist);
@@ -49,14 +52,22 @@ namespace SpyStore.DAL.Repos
             {
                 throw new InvalidQuantityException("Can't add more product than available in stock");
             }
+            // lưu ý là gọi vào base
             return base.Update(entity, persist);
         }
 
+        // The Add method checks to see if there are any of the same products already in the cart.
         public override int Add(ShoppingCartRecord entity, bool persist = true)
         {
             return Add(entity, _productRepo.Find(entity.ProductId)?.UnitsInStock, persist);
         }
 
+        // The Add method checks to see if there are any of the same products already in the cart.
+        // If there are, the quantity is updated(instead of adding a new record).
+        // If there aren’t any, the product is added to the cart.
+        // When the cart is updated, if the new quantity is less than or equal to zero, the item is deleted from the cart. Otherwise, the quantity is simply updated.
+        // Both the Add and Update methods check the available inventory, and if the user is attempting to add more records into the cart than are available,
+        // an InvalidQuantityException is thrown.
         public int Add(ShoppingCartRecord entity, int? quantityInStock, bool persist = true)
         {
             var item = Find(entity.CustomerId, entity.ProductId);
@@ -72,7 +83,7 @@ namespace SpyStore.DAL.Repos
             return item.Quantity <= 0 ? Delete(item, persist) : Update(item, quantityInStock, persist);
         }
 
-
+        // The GetRecord method simplifies the projections in the GetShoppingCartRecord and GetShoppingCartRecords methods.
         internal CartRecordWithProductInfo GetRecord(int customerId, ShoppingCartRecord scr, Product p, Category c)
             => new CartRecordWithProductInfo
             {
@@ -96,18 +107,19 @@ namespace SpyStore.DAL.Repos
 
         public CartRecordWithProductInfo GetShoppingCartRecord(int customerId, int productId)
             => Table.Where(x => x.CustomerId == customerId && x.ProductId == productId)
-            .Include(x => x.Product)
-                .ThenInclude(p => p.Category)
-            .Select(x => GetRecord(customerId, x, x.Product, x.Product.Category))
-            .FirstOrDefault();
+            .Include(x => x.Product!)
+                .ThenInclude(p => p.Category!)
+            .Select(x => GetRecord(customerId, x, x.Product!, x.Product!.Category!))
+            .FirstOrDefault()!;
 
         public IEnumerable<CartRecordWithProductInfo> GetShoppingCartRecords(int customerId)
             => Table.Where(x => x.CustomerId == customerId)
-            .Include(x => x.Product)
+            .Include(x => x.Product!)
                 .ThenInclude(p => p.Category)
-            .Select(x => GetRecord(customerId, x, x.Product, x.Product.Category))
+            .Select(x => GetRecord(customerId, x, x.Product!, x.Product!.Category!))
             .OrderBy(x => x.ModelName);
 
+        // The Purchase() method executes the stored procedure built earlier in the chapter.
         public int Purchase(int customerId)
         {
             var customerIdParam = new SqlParameter("@customerId", SqlDbType.Int)
