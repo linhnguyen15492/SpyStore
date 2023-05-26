@@ -17,11 +17,11 @@ Console.WriteLine("Hello world!");
 
  */
 
-StoreContext context = new StoreContext();
-var c = new Category() { CategoryName = "test", Products = new List<Product>() };
-context.Categories.Add(c);
-context.SaveChanges();
-Console.WriteLine("thêm ngành hàng thành công");
+//StoreContext context = new StoreContext();
+//var c = new Category() { CategoryName = "test", Products = new List<Product>() };
+//context.Categories.Add(c);
+//context.SaveChanges();
+//Console.WriteLine("thêm ngành hàng thành công");
 
-var a = context.Categories.AsNoTracking().ToList();
-Console.WriteLine(a);
+//var a = context.Categories.AsNoTracking().ToList();
+//Console.WriteLine(a);
